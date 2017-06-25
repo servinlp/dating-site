@@ -1,0 +1,15 @@
+include ../header.pug
+figure
+  //- img(src="https://placeholdit.imgix.net/~text?w=350&amp;h=350" alt="Achtergrond")
+  img(src="/img/bg.jpg" alt="Achtergrond")
+main.float
+  form(action="/account/" method="POST")
+    if (noMatch)
+      p Uw gegevens kwamen niet overeen.
+    label Emailadres
+      input(type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")
+    label Wachtwoord
+      input(type="password" name="password" pattern=".{7,}")
+    input(class="btn" type="submit" value="Login")
+  a(class="small" href="/account/wachtwoord-vergeten") Wachtwoord vergeten?
+include ../footer.pug

@@ -1,0 +1,153 @@
+body{
+  > figure{
+    position:absolute;
+    min-width: 100%;
+    // min-height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
+    z-index: -1;
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      filter: blur(7px);
+    }
+    ~ main{
+      background: rgba($white, 0.1);
+      color: $white;
+      width: 80%;
+      box-sizing: border-box;
+      padding: 20px;
+      margin: 0 auto;
+    }
+  }
+  > h1{
+    margin: .7em auto;
+    text-align: center;
+  }
+}
+
+main{
+  &.float{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+  }
+  > h1{
+    font-size: 1.4em;
+    text-align: center;
+    margin: .7em auto;
+  }
+}
+
+article, section{
+  width: 70%;
+  margin: 0 auto 1em auto;
+  a{
+    h2{
+      text-align: center;
+      margin-bottom: .7em;
+    }
+  }
+  ul{
+    margin-bottom: 1em;
+  }
+}
+
+.startChat{
+  margin-top: 1.8em;
+}
+
+.chat-overzicht{
+  margin-top: 1em;
+  .profile{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    border: 2px solid transparent;
+  }
+  li{
+    &:not(:last-child){
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid $white;
+    }
+    &.online{
+      .profile{
+        border-color: $green;
+      }
+    }
+  }
+  div{
+    width: calc(100% - 84px);
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    padding-left: 1em;
+    word-break: break-all;
+  }
+}
+
+.chat{
+  width:65%;
+  margin-bottom: 11em;
+  ul{
+    padding-top: 6em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    li{
+      margin-bottom: 1em;
+      border-radius: 4px;
+      background: $white;
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      max-width: 80%;
+      word-break: break-all;
+      &.verzonden{
+        background: $lightgray;
+        align-self: flex-end;
+      }
+      h3, p{
+        display: inline-block;
+      }
+      small{
+        font-size: .6em;
+      }
+    }
+  }
+  form{
+    position:fixed;
+    bottom: 0;
+    left: 0;
+    width: 65%;
+    background: $darkgray;
+    padding: 1em 17.5%;
+    margin: 0;
+  }
+  textarea{
+    background: $white;
+  }
+}
+
+.verwijder{
+  display: block;
+  text-align: center;
+  margin: .6em auto;
+  label{
+    color: $darkgray;
+  }
+  small{
+    font-size: .8em;
+  }
+}
+
+.analytics{
+  li{
+    span{
+      float: right;
+    }
+  }
+}

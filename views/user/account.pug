@@ -1,0 +1,61 @@
+include ../header.pug
+main.container
+  header
+    a(class="btn" href="/") <-
+    h1 Instellingen
+    figure.profile
+      img(src="/profilepics/" + profilePic alt="profile pic")
+    h1 Hoi #{me.voornaam}
+  if (opgeslagen)
+    p.pink Uw gegevens zijn opgeslagen
+  form(class="dark" action="/app/account" method="POST" enctype="multipart/form-data")
+    label Profiel foto
+      input(type="file" name="profilepic")
+    label Zoekende
+      if (me.zoekende == 1)
+        input(type="checkbox" name="zoekende" checked)
+      else
+        input(type="checkbox" name="zoekende")
+    p Op zoek naar
+    div
+      if me.valtOp == "Man"
+        input(type="radio" name="voor" value="Man" required checked id="voorMan")
+        label(for="voorMan") Man
+        input(type="radio" name="voor" value="Vrouw" id="voorVrouw")
+        label(for="voorVrouw") Vrouw
+        input(type="radio" name="voor" value="Beide" id="voorBiede")
+        label(for="voorBeide") Beide
+      else if me.valtOp == "Vrouw"
+        input(type="radio" name="voor" value="Man" required id="voorMan")
+        label(for="voorMan") Man
+        input(type="radio" name="voor" value="Vrouw" checked id="voorVrouw")
+        label(for="voorVrouw") Vrouw
+        input(type="radio" name="voor" value="Beide" id="voorBiede")
+        label(for="voorBeide") Beide
+      else if me.valtOp == "Beide"
+        input(type="radio" name="voor" value="Man" required id="voorMan")
+        label(for="voorMan") Man
+        input(type="radio" name="voor" value="Vrouw" id="voorVrouw")
+        label(for="voorVrouw") Vrouw
+        input(type="radio" name="voor" value="Beide" checked id="voorBiede")
+        label(for="voorBeide") Beide
+    label.location Ik woon in
+      input(type="text" name="location" required value=me.location)
+      ul
+    label Zoekende binnen een afstand van
+      div
+        span 0km
+        input(type="range" name="distance" min="1" max="100" required value=me.distance)
+        span 100km
+    label Zoekende naar een leeftijd van
+      div
+        span 18
+        input(type="range" name="leeftijdVan" min="18" max="100" required value=me.leeftijdVan)
+        span 100
+        input(type="range" name="leeftijdTot" min="18" max="100" required value=me.leeftijdTot)
+
+
+    input(class="btn" type="submit" value="Opslaan")
+
+    a(class="verwijder pink small" href="/app/delete-account") Verwijder mijn account
+include ../footer.pug

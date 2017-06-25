@@ -1,0 +1,30 @@
+include header.pug
+figure
+  //- img(src="https://placeholdit.imgix.net/~text?w=350&h=350" alt="Achtergrond")
+  img(src="/img/bg.jpg" alt="Achtergrond")
+main.float.dark
+  h1 Het dating voor serieuse
+    //- img(src="/img/logo-pink.svg" alt="morbi")
+  //- p Schrijf je nu gratis in
+  form.dark(action="/" method="POST")
+    fieldset
+      legend Waar zoek je naar?
+      p Ik ben
+      div
+        input(type="radio" name="ik" value="Man" id="ikMan" required)
+        label(for="ikMan") Man
+        input(type="radio" name="ik" value="Vrouw" id="ikVrouw")
+        label(for="ikVrouw") Vrouw
+
+      p Op zoek naar
+      div
+        input(type="radio" name="voor" value="Man" id="naarMan" required)
+        label(for="naarMan") Man
+        input(type="radio" name="voor" value="Vrouw" id="naarVrouw")
+        label(for="naarVrouw") Vrouw
+        input(type="radio" name="voor" value="Beide" id="naarBeide")
+        label(for="naarBeide") Beide
+
+      input(type="submit" class="btn" value="Naar de volgende stap")
+
+include footer.pug

@@ -1,0 +1,12 @@
+include ../header.pug
+figure
+main.float
+  form(action="/die/admin/login" method="POST")
+    if (noMatch)
+      p Uw gegevens kwamen niet overeen.
+    label Emailadres
+      input(type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="servin@gmail.com")
+    label Wachtwoord
+      input(type="password" name="password" pattern=".{7,}" value="1234567")
+    input(class="btn" type="submit" value="Login")
+include ../footer.pug

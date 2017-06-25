@@ -1,0 +1,157 @@
+header{
+  position:relative;
+  &:not(.head){
+    padding-top: 1em;
+    > .btn{
+      margin: .5em 0;
+      position:absolute;
+      top:0;
+    }
+    .options{
+      padding: 1em 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      width: 50px;
+      div{
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: $darkgray;
+        margin: 0 auto 5px;
+      }
+      aside{
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: $lightgray;
+        padding: 1em;
+        min-width: 200px;
+        select{
+          display: block;
+          width: 100%;
+        }
+        label{
+          color: $darkgray;
+          font-size: .8em;
+        }
+        textarea{
+          background: $white;
+        }
+      }
+      &:hover, .open{
+        aside{
+          display: block;
+        }
+      }
+    }
+  }
+  h1{
+    color: $pink;
+    font-size: 1.7em;
+    text-align: center;
+  }
+  &.head{
+    height: 60px;
+    width: 100vw;
+    padding: 5px 1em;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background: $white;
+    a{
+      img{
+        height: 100%;
+        width: auto;
+      }
+      h1{
+        display: none;
+      }
+    }
+    button{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid $pink;
+      padding:0;
+      overflow: hidden;
+      img{
+        object-fit: cover;
+        min-width: 100%;
+        min-height: 100%;
+        width: 100%;
+        height: auto;
+      }
+      &:hover{
+        + nav{
+          display: block;
+        }
+      }
+    }
+    nav{
+      display: none;
+      position:absolute;
+      top: 50px;
+      right: 1em;
+      background: $white;
+      padding: 1.6em 1em 1em 1em;
+      &:hover{
+        display: block;
+      }
+      ul{
+        li{
+          list-style: none;
+          &:not(:last-child){
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $pink;
+          }
+          form{
+            margin: 0;
+          }
+          .btn{
+            margin:0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+header.chatheader{
+  position: fixed;
+  top: 65px;
+  left: 1em;
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  .profile{
+    width: 60px;
+    height: 60px;
+    border: 2px solid transparent;
+    &.online{
+      border-color: $green;
+    }
+  }
+  .btn{
+    position: initial;
+    width: 40px;
+    height: 35px;
+  }
+  div{
+    display: inline-block;
+  }
+}
+
+html:not(.no-js){
+  header:not(.head) .options aside.open{
+
+  }
+}

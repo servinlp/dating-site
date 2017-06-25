@@ -1,0 +1,10 @@
+include ../header.pug
+figure
+  img(src="https://placeholdit.imgix.net/~text?w=350&amp;h=350" alt="Achtergrond")
+main
+  form(action="/account/wachtwoord-vergeten" method="POST")
+    label
+      Emailadres
+      input(type="email")
+    input(type="submit" value="Stuur mij een nieuw wachtwoord")
+include ../footer.pug

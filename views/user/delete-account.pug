@@ -1,0 +1,9 @@
+include ../header.pug
+
+main.container.verwijder
+  form(action="/app/delete-account" method="POST")
+    label Weet je zeker dat je je account wilt verwijderen?
+      small Na dit punt is er geen terug gaan.
+    input(class="btn" type="submit" value="Ik weet het zeker. Verwijder mijn account")
+
+include ../footer.pug

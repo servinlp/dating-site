@@ -1,0 +1,21 @@
+include ../header
+header.chatheader
+  a(class="btn" href="/app/chat-overzicht") <-
+  a(href="/app/match/"+ personInfo[1].ID)
+    - var klass = (personInfo[1].online == 1 ? ' online' : '')
+    figure(class="profile" + klass)
+      img(src="/profilepics/" + personInfo[1].profilePic alt="profiel foto")
+section.chat
+  ul
+    each item in messages
+      - var naam = (item.from_id == personInfo[0].ID ? personInfo[0].voornaam : personInfo[1].voornaam)
+      - var ontvangen = (item.from_id == personInfo[0].ID ? "verzonden" : "ontvangen")
+      li(class=ontvangen)
+        //- h3= naam
+        p= item.message
+        small= item.sendTime + " | " + item.day
+  form(action="/app/chat/" + personInfo[1].ID method="post")
+    textarea(name="message")
+    input(class="btn white" type="submit" value="versturen")
+
+include ../footer

@@ -1,0 +1,59 @@
+include ../header.pug
+figure
+  //- img(src="https://placeholdit.imgix.net/~text?w=350&h=350" alt="Achtergrond")
+  //- img(src="https://placeholdit.imgix.net/~text?txtsize=33&txt=stappen&w=350&h=350" alt="")
+main
+  h1.dark Jouw voorkeuren
+  form(class="dark" action="/account/choice" method="post")
+    fieldset
+      legend Lekker op de bank of samen stappen?
+      label
+        input(type="radio" name="first" value="bank")
+        figure.choice
+          img(src="/img/bankhangen.jpg" alt="")
+      label
+        input(type="radio" name="first" value="stappen")
+        figure.choice
+          img(src="/img/uitgaan.png" alt="")
+    fieldset
+      legend Uitslapen of actief je ochtend beginnen?
+      label
+        input(type="radio" name="second" value="bed")
+        figure.choice
+          img(src="/img/uitslapen.jpg" alt="")
+      label
+        input(type="radio" name="second" value="actief")
+        figure.choice
+          img(src="/img/vroeg-op.jpg" alt="")
+    fieldset
+      legend Kat of hond?
+      label
+        input(type="radio" name="third" value="kat")
+        figure.choice
+          img(src="/img/kat.jpg" alt="")
+      label
+        input(type="radio" name="third" value="hond")
+        figure.choice
+          img(src="/img/hond.jpg" alt="")
+    fieldset
+      legend Naar de bioscoop of thuis een filmpje opzetten?
+      label
+        input(type="radio" name="fourth" value="bios")
+        figure.choice
+          img(src="/img/bios.jpg" alt="")
+      label
+        input(type="radio" name="fourth" value="thuis")
+        figure.choice
+          img(src="/img/film.jpg" alt="")
+    fieldset
+      legend Koffee of thee?
+      label
+        input(type="radio" name="fift" value="koffee")
+        figure.choice
+          img(src="/img/koffie.jpg" alt="")
+      label
+        input(type="radio" name="fift" value="thee")
+        figure.choice
+          img(src="/img/thee.jpg" alt="")
+    input(class="btn" type="submit" value="Verder")
+include ../footer.pug

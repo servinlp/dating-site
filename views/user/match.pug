@@ -1,0 +1,46 @@
+include ../header.pug
+main.container
+  header
+    a(class="btn" href="/") <-
+    div.options
+      div
+      div
+      div
+      aside
+        if melding
+          form(action="/app/melden/" + matchID method="POST")
+            label Meld deze gebruiker voor:
+            select(name="melding" required)
+              option(value="spam") Spam
+              option(value="taal-gebruik") Taal gebruik
+              option(value="nep-account") Nep account
+              option(value="bedrijging") Bedrijging
+              option(value="rasisme") Rasisme
+            textarea(name="bijschrijving")
+            input(class="btn" type="submit" value="Plaats de melding")
+        else
+          p Je hebt al een melding gemaakt.
+    figure.profile
+      img(src="/profilepics/" + match.profilePic alt="profile pic")
+    if (match.tussen != "")
+      h1= match.voornaam + " " + match.tussen + " " + match.achternaam + ", " + match.age
+    else
+      h1= match.voornaam + " " + match.achternaam + ", " + match.age
+  section
+    p Samen houden jullie van:
+    ul
+      li Lekker op de bank
+      li Uitslapen
+
+    p Samen haten jullie:
+    ul
+      li Langzame lopers
+      li Traag internet
+    if (startchat)
+      p.startChat Begin met chatten
+      form(action="/app/startchatting/" + matchID method="POST")
+        textarea(name="message")
+        input(class="btn" type="submit")
+    else
+      a(class="btn" href="/app/chat/" + matchID) Ga naar chat
+include ../footer.pug

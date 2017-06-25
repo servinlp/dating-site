@@ -1,0 +1,33 @@
+include header.pug
+main.container
+  if (first)
+    h1 Welkom #{naam}, hier zijn jouw eerste matches
+  else
+    h1 Hoi #{naam}, hier zijn jouw matches
+  if (notSearching)
+    p Je bent momenteel niet aan het zoeken.
+  else if (matches.length == 0)
+    p Je hebt nog geen matches.
+  else
+    each item in matches.length ? matches : ['Je hebt nog geen matches']
+      article
+        a(href="/app/match/" + item.ID)
+          figure.profile
+            img(src="profilepics/" + item.profilePic alt="profile pic")
+          h2= item.voornaam + ", " + item.age
+        p Samen houden jullie van:
+        ul
+          each love in item.liefdeMatchWords
+            li= love
+
+        p Samen haten jullie:
+        ul
+          each hate in item.haatMatchWords
+            li= hate
+        a(href="/app/match/" + item.ID) Naar je match
+  footer
+    if (prev)
+      a(class="btn" href="#") <
+    if (more)
+      a(class="btn" href="#") >
+include footer.pug

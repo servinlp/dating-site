@@ -1,0 +1,97 @@
+include ../header.pug
+figure
+  //- img(src="https://placeholdit.imgix.net/~text?w=350&h=350" alt="Achtergrond")
+h1 Registreren
+main
+  figure.profile
+    img(src="" )
+  form(class="dark" action="/account/registreren" method="POST" enctype="multipart/form-data")
+    fieldset
+      //- legend Je standaard gegevens
+      label Profiel foto (max 2mb)
+        input(type="file" name="profilepic")
+      label Voornaam:
+        input(type="text" name="name" required)
+      label Tussenvoegsel:
+        input(type="text" name="insertion")
+      label Achternaam:
+        input(type="text" name="surname" required)
+      p Ik ben
+      div
+        if ik == "Man"
+          input(type="radio" name="ik" value="Man" required checked id="ikMan")
+          label(for="ikMan") Man
+          input(type="radio" name="ik" value="Vrouw" id="ikVrouw")
+          label(for="ikVrouw") Vrouw
+        else if ik == "Vrouw"
+          input(type="radio" name="ik" value="Man" required id="ikMan")
+          label(for="ikMan") Man
+          input(type="radio" name="ik" value="Vrouw" checked id="ikVrouw")
+          label(for="ikVrouw") Vrouw
+        else
+          input(type="radio" name="ik" value="Man" required id="ikMan")
+          label(for="ikMan") Man
+          input(type="radio" name="ik" value="Vrouw" id="ikVrouw")
+          label(for="ikVrouw") Vrouw
+      p Op zoek naar
+      div
+        if naar == "Man"
+          input(type="radio" name="voor" value="Man" required checked id="voorMan")
+          label(for="voorMan") Man
+          input(type="radio" name="voor" value="Vrouw" id="voorVrouw")
+          label(for="voorVrouw") Vrouw
+          input(type="radio" name="voor" value="Beide" id="voorBiede")
+          label(for="voorBeide") Beide
+        else if naar == "Vrouw"
+          input(type="radio" name="voor" value="Man" required id="voorMan")
+          label(for="voorMan") Man
+          input(type="radio" name="voor" value="Vrouw" checked id="voorVrouw")
+          label(for="voorVrouw") Vrouw
+          input(type="radio" name="voor" value="Beide" id="voorBiede")
+          label(for="voorBeide") Beide
+        else if naar == "Beide"
+          input(type="radio" name="voor" value="Man" required id="voorMan")
+          label(for="voorMan") Man
+          input(type="radio" name="voor" value="Vrouw" id="voorVrouw")
+          label(for="voorVrouw") Vrouw
+          input(type="radio" name="voor" value="Beide" checked id="voorBiede")
+          label(for="voorBeide") Beide
+        else
+          input(type="radio" name="voor" value="Man" required id="voorMan")
+          label(for="voorMan") Man
+          input(type="radio" name="voor" value="Vrouw" id="voorVrouw")
+          label(for="voorVrouw") Vrouw
+          input(type="radio" name="voor" value="Beide" id="voorBiede")
+          label(for="voorBeide") Beide
+      label Geboortedatum
+        input(type="date" name="birthdate" required)
+        small (je moet minimaal 18 jaar zijn)
+      if (niet18)
+        p.warning Deze website is alleen bedoelt voor mensen boven de 18 jaar
+      label.location Ik woon in
+        input(type="text" name="location" required)
+        ul
+      label Zoekende binnen een afstand van
+        div
+          span 0km
+          input(type="range" name="distance" min="1" max="100" required)
+          span 100km
+      label Zoekende naar een leeftijd van
+        span 18
+        input(type="range" name="beginAge" min="18" max="50" value="18" required)
+        span 100
+        input(type="range" name="eindAge" min="18" max="50" value="50" required)
+      label Emailadres
+        input(type="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")
+      if (passwordMatchError)
+        p.warning Uw wachtwoorden kwamen niet overeen
+      label Wachtwoord
+        input(type="password" name="password" required pattern=".{7,}" title="Minimaal 7 karakters")
+        if (teKort)
+          strong.warning Minimaal 7 karakters
+        else
+          small Minimaal 7 karakters
+      label Wachtwoord opniew
+        input(type="password" name="passwordAgain" required pattern=".{7,}" title="Minimaal 7 karakters")
+    input(class="btn" type="submit" value="Verder")
+include ../footer.pug

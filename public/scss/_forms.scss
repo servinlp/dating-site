@@ -1,0 +1,141 @@
+form{
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  &.dark{
+    color: $darkgray;
+    label{
+      color: $darkgray;
+    }
+  }
+  legend{
+    margin-bottom: .8em;
+  }
+  fieldset{
+    min-width: 0;
+  }
+  img{
+    width: 100%;
+    height: auto;
+  }
+  label{
+    color: $white;
+    display: block;
+    margin-bottom: 1.2em;
+    div{
+      margin-top: .4em;
+    }
+    img{
+      border: 2px solid transparent;
+      @include transition(border 0.3s ease);
+    }
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  textarea{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    display: block;
+    margin-top: .4em;
+    width: 100%;
+    color: $gray;
+    font-family: $font;
+    &:focus{
+      outline: none;
+    }
+  }
+  input[type="radio"]{
+    position:absolute;
+    visibility: hidden;
+  }
+  input[type="radio"]:checked + label{
+    color: $darkgray;
+    border-color: $darkgray;
+  }
+  input[type="radio"]:checked + figure img{
+    border-color: $darkgray;
+  }
+  div{
+    position:relative;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1em;
+    label{
+      padding: 5px 10px;
+      margin: 0;
+      border: 2px solid transparent;
+      @include transition(all 0.3s ease);
+    }
+  }
+  p{
+    margin-bottom: .5em;
+  }
+  .btn{
+    display: block;
+    margin: 0 auto;
+    min-width: 80%;
+    border: none;
+  }
+  small{
+    text-transform: lowercase;
+    font-size: .6em;
+    display: block;
+  }
+  .warning{
+    color: $pink;
+  }
+  input[type='date']{
+    margin-top: .4em;
+    position:relative;
+  }
+  textarea{
+    width: 100%;
+    background: transparent;
+    border: 2px solid $pink;
+    border-radius: 4px;
+    margin-bottom: .8em;
+  }
+  .location{
+    position: relative;
+    ul{
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      li{
+        width: 100%;
+        display: block;
+        font-size: 1em;
+        background: $white;
+        cursor: pointer;
+        text-transform: capitalize;
+        padding: 5px;
+        box-sizing: border-box;
+        font-size: .8em;
+        border: 1px solid $gray;
+        border-bottom:none;
+        color: $gray;
+        &:last-child{
+          border-bottom: 1px solid $gray;
+        }
+      }
+    }
+  }
+}
+// ::-webkit-datetime-edit,
+// ::-webkit-clear-button,
+// ::-webkit-calendar-picker-indicator{
+//   // position:absolute;
+//   background:$pink;
+// }
+// ::-webkit-clear-button{
+//   right:1.54em;
+// }
+// ::-webkit-inner-spin-button{
+//   -webkit-appearance:none; margin:0;
+// }
+// ::-webkit-calendar-picker-indicator{
+//   right:0; padding:.539em .34em;
+// }

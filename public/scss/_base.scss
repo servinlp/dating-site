@@ -1,0 +1,101 @@
+body{
+  font-family: $font;
+  padding-top: 60px;
+  position: relative;
+  background: rgba($gray, 0.2);
+}
+main{
+  > figure.profile{
+    margin-bottom: 1em;
+  }
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $headerfont;
+}
+
+h1{
+  font-size: 2.4em;
+}
+
+p{
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+a{
+  text-decoration: none;
+  color: $pink;
+}
+
+button, input[type="sumbit"]{
+  background: transparent;
+  border: none;
+  &:focus{
+    outline: none;
+  }
+}
+
+.btn{
+  background: $pink;
+  color: $white;
+  display: inline-block;
+  text-align:center;
+  padding: 8px 13px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  &.gray{
+    color: $white;
+    background: $darkgray;
+  }
+  &.white{
+    color: $darkgray;
+    background: $white;
+    // border:
+  }
+}
+
+.small{
+  font-size: .8em;
+}
+
+.container{
+  padding: 0 1em;
+  box-sizing: border-box;
+}
+
+figure.profile{
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto .4em auto;
+  background: $pink;
+  img{
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.pink{
+  color: $pink;
+}
+
+.dark{
+  color: $darkgray;
+}
+
+figure.choice{
+  width: calc(80vw - 40px);
+  height: calc(80vw - 40px);
+  img{
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+  }
+}

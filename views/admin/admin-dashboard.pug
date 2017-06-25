@@ -1,0 +1,22 @@
+include ../header.pug
+main
+  h1 Dashboard
+  section
+    if stats.length > 0
+      h2 Analytics
+      ul.analytics
+        //- each item in stats
+        li Totaal aantal gebruikers
+          span= stats[0].totaluser
+        li Online gebruikers
+          span= stats[0].onlineUsers
+        li Aantal melding
+          span= stats[0].totalmeldingen
+  section
+    h2 Meldingen
+    ul
+      each item in meldingen
+        li= item.voornaam
+          p= item.type
+          p= item.message
+include ../footer.pug

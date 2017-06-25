@@ -1,0 +1,21 @@
+include ../header
+
+section.chat-overzicht
+  ul
+    each chat in chats
+      - var klass = (chat.online == 1 ? 'online' : '')
+      li(class=klass)
+        a(href="/app/chat/" + chat.userID)
+          figure.profile
+            img(src="/profilepics/" + chat.profilePic alt="profiel foto")
+          div
+            h3= chat.voornaam
+            p= chat.message
+            small= chat.sendTime + " | " + chat.day
+    //- li.online
+    //-   a(href="/app/chat")
+    //-     h3 Joost
+    //-     p Hoi Eva ik ben joost
+    //-     small 23 maart
+
+include ../footer

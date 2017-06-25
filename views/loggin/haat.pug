@@ -1,0 +1,48 @@
+include ../header.pug
+figure
+  //- img(src="https://placeholdit.imgix.net/~text?w=350&h=350" alt="Achtergrond")
+main
+  h1.dark Ik haat het meest...
+  form(class="dark" action="/account/haat" method="post")
+    fieldset
+      legend Langzame lopers of mensen die alleen kunnen klagen?
+      label
+        input(type="radio" name="first" value="lopers")
+        figure.choice
+          img(src="/img/slow.jpg" alt="")
+      label
+        input(type="radio" name="first" value="klagen")
+        figure.choice
+          img(src="/img/klagen.jpg" alt="")
+    fieldset
+      legend Koken of fast food?
+      label
+        input(type="radio" name="second" value="koken")
+        figure.choice
+          img(src="/img/koken.jpg" alt="")
+      label
+        input(type="radio" name="second" value="fastfood")
+        figure.choice
+          img(src="/img/fast-food.jpg" alt="")
+    fieldset
+      legend Traag internet of vol gespammed op whatsapp?
+      label
+        input(type="radio" name="third" value="internet")
+        figure.choice
+          img(src="/img/slow-internet.jpg" alt="")
+      label
+        input(type="radio" name="third" value="spam")
+        figure.choice
+          img(src="/img/spam.jpg" alt="")
+    fieldset
+      legend Betalen voor saus bij je friet of friet verzopen in saus?
+      label
+        input(type="radio" name="fourth" value="betalen")
+        figure.choice
+          img(src="/img/betalen.jpg" alt="")
+      label
+        input(type="radio" name="fourth" value="verzopen")
+        figure.choice
+          img(src="/img/sause.jpg" alt="")
+    input(class="btn" type="submit" value="Bekijk je eerste matches")
+include ../footer.pug
